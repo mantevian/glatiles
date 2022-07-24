@@ -40,11 +40,20 @@ value = 1.0
 prefix = "  level "
 
 [node name="created_by_mante" type="Label" parent="."]
-margin_left = 428.0
-margin_top = 440.0
-margin_right = 609.0
-margin_bottom = 461.0
+margin_left = 424.0
+margin_top = 464.0
+margin_right = 605.0
+margin_bottom = 485.0
 theme = ExtResource( 1 )
 text = "created by mantevian"
 
+[node name="LinkButton" type="LinkButton" parent="created_by_mante"]
+margin_left = 5.0
+margin_top = 21.0
+margin_right = 177.0
+margin_bottom = 45.0
+theme = ExtResource( 1 )
+text = "check me out on itch"
+
 [connection signal="button_up" from="play_button" to="." method="_on_play_button_button_up"]
+[connection signal="button_up" from="created_by_mante/LinkButton" to="." method="_on_LinkButton_button_up"]
