@@ -1,0 +1,68 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://src/ui/scene_change_button.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/level.gd" type="Script" id=2]
+[ext_resource path="res://src/tileset.tres" type="TileSet" id=3]
+[ext_resource path="res://src/player.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/next_level.gd" type="Script" id=37]
+[ext_resource path="res://src/ui/theme.tres" type="Theme" id=38]
+[ext_resource path="res://src/restart.gd" type="Script" id=39]
+
+[node name="level_10" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="tilemap" type="TileMap" parent="."]
+modulate = Color( 0.788235, 0.788235, 0.788235, 0.784314 )
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 262154, 0, 0, 262155, 0, 0, 262156, 0, 0, 262157, 0, 0, 262158, 0, 0, 262159, 0, 0, 262160, 0, 0, 262161, 0, 0, 262162, 0, 0, 262163, 0, 0, 262164, 0, 0, 262165, 0, 0, 262166, 0, 0, 262167, 0, 0, 262168, 0, 0, 262169, 0, 0, 327686, 0, 0, 327687, 25, 0, 327688, 25, 0, 327689, 25, 0, 327690, 25, 0, 327691, 25, 0, 327692, 25, 0, 327693, 25, 0, 327694, 25, 0, 327695, 25, 0, 327696, 25, 0, 327697, 25, 0, 327698, 25, 0, 327699, 25, 0, 327700, 25, 0, 327701, 25, 0, 327702, 25, 0, 327703, 25, 0, 327704, 25, 0, 327705, 0, 0, 393222, 0, 0, 393223, 25, 0, 393224, 25, 0, 393225, 25, 0, 393226, 25, 0, 393227, 25, 0, 393228, 25, 0, 393229, 8, 0, 393230, 25, 0, 393231, 25, 0, 393232, 25, 0, 393233, 25, 0, 393234, 25, 0, 393235, 10, 0, 393236, 10, 0, 393237, 10, 0, 393238, 25, 0, 393239, 25, 0, 393240, 25, 0, 393241, 0, 0, 458758, 0, 0, 458759, 25, 0, 458760, 25, 0, 458762, 25, 0, 458763, 25, 0, 458764, 25, 0, 458765, 25, 0, 458766, 25, 0, 458767, 25, 0, 458768, 25, 0, 458769, 25, 0, 458770, 25, 0, 458771, 25, 0, 458772, 25, 0, 458773, 25, 0, 458774, 25, 0, 458775, 11, 0, 458776, 25, 0, 458777, 0, 0, 524294, 0, 0, 524295, 25, 0, 524296, 25, 0, 524297, 25, 0, 524298, 25, 0, 524299, 25, 0, 524300, 25, 0, 524301, 25, 0, 524302, 25, 0, 524303, 25, 0, 524304, 9, 0, 524305, 9, 0, 524306, 25, 0, 524307, 25, 0, 524308, 25, 0, 524309, 25, 0, 524310, 25, 0, 524311, 11, 0, 524312, 25, 0, 524313, 0, 0, 589830, 0, 0, 589831, 25, 0, 589832, 25, 0, 589833, 25, 0, 589834, 25, 0, 589835, 25, 0, 589836, 25, 0, 589837, 25, 0, 589838, 25, 0, 589839, 25, 0, 589840, 25, 0, 589841, 25, 0, 589842, 25, 0, 589843, 25, 0, 589844, 25, 0, 589845, 25, 0, 589846, 25, 0, 589847, 11, 0, 589848, 25, 0, 589849, 0, 0, 655366, 0, 0, 655367, 0, 0, 655368, 0, 0, 655369, 0, 0, 655370, 0, 0, 655371, 0, 0, 655372, 0, 0, 655373, 0, 0, 655374, 0, 0, 655375, 0, 0, 655376, 0, 0, 655377, 0, 0, 655378, 0, 0, 655379, 0, 0, 655380, 0, 0, 655381, 0, 0, 655382, 0, 0, 655383, 0, 0, 655384, 0, 0, 655385, 0, 0 )
+
+[node name="player" parent="." instance=ExtResource( 10 )]
+x = 9
+y = 7
+
+[node name="menu" parent="." instance=ExtResource( 1 )]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 120.0
+margin_bottom = 56.0
+text = "menu"
+scene_path = "res://src/ui/menu.tscn"
+
+[node name="next_level" type="Button" parent="."]
+margin_left = 904.0
+margin_top = 8.0
+margin_right = 1016.0
+margin_bottom = 56.0
+theme = ExtResource( 38 )
+disabled = true
+text = "next level"
+script = ExtResource( 37 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 488.0
+margin_top = 16.0
+margin_right = 546.0
+margin_bottom = 37.0
+theme = ExtResource( 38 )
+text = "level 10
+
+yeah"
+align = 1
+
+[node name="restart" type="Button" parent="."]
+margin_left = 8.0
+margin_top = 64.0
+margin_right = 120.0
+margin_bottom = 112.0
+theme = ExtResource( 38 )
+text = "restart"
+script = ExtResource( 39 )
+
+[connection signal="tree_entered" from="." to="." method="_on_level_tree_entered"]
+[connection signal="settings_changed" from="tilemap" to="." method="_on_tilemap_settings_changed"]
+[connection signal="end_moving" from="player" to="." method="_on_player_end_moving"]
+[connection signal="move" from="player" to="." method="_on_player_move"]
+[connection signal="button_up" from="next_level" to="next_level" method="_on_next_level_button_up"]
+[connection signal="button_up" from="restart" to="restart" method="_on_restart_button_up"]

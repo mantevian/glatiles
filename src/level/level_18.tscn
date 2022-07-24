@@ -1,0 +1,68 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://src/ui/scene_change_button.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/level.gd" type="Script" id=2]
+[ext_resource path="res://src/tileset.tres" type="TileSet" id=3]
+[ext_resource path="res://src/player.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/next_level.gd" type="Script" id=37]
+[ext_resource path="res://src/ui/theme.tres" type="Theme" id=38]
+[ext_resource path="res://src/restart.gd" type="Script" id=39]
+
+[node name="level_18" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="tilemap" type="TileMap" parent="."]
+modulate = Color( 0.788235, 0.788235, 0.788235, 0.784314 )
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( 8, 25, 0, 24, 10, 0, 65542, 22, 0, 65543, 12, 0, 65545, 0, 0, 65558, 0, 0, 65560, 0, 0, 65561, 24, 0, 131078, 22, 0, 131079, 0, 0, 131081, 0, 0, 131093, 9, 0, 131094, 0, 0, 131096, 0, 0, 131097, 24, 0, 196614, 22, 0, 196615, 0, 0, 196617, 0, 0, 196619, 0, 0, 196620, 0, 0, 196621, 0, 0, 196622, 0, 0, 196623, 0, 0, 196624, 0, 0, 196625, 0, 0, 196626, 0, 0, 196627, 0, 0, 196628, 0, 0, 196630, 0, 0, 196632, 0, 0, 196633, 24, 0, 262150, 22, 0, 262153, 0, 0, 262155, 0, 0, 262160, 25, 0, 262163, 8, 0, 262164, 0, 0, 262166, 0, 0, 262168, 0, 0, 262169, 24, 0, 327686, 22, 0, 327687, 0, 0, 327689, 0, 0, 327691, 0, 0, 327693, 0, 0, 327694, 0, 0, 327695, 0, 0, 327696, 0, 0, 327697, 0, 0, 327698, 0, 0, 327700, 0, 0, 327702, 0, 0, 327704, 0, 0, 327705, 24, 0, 393222, 24, 0, 393223, 25, 0, 393225, 0, 0, 393227, 0, 0, 393228, 13, 0, 393229, 0, 0, 393234, 0, 0, 393236, 0, 0, 393238, 25, 0, 393240, 0, 0, 393241, 24, 0, 458758, 22, 0, 458759, 0, 0, 458761, 0, 0, 458762, 25, 0, 458763, 0, 0, 458765, 0, 0, 458767, 0, 0, 458768, 0, 0, 458770, 0, 0, 458772, 0, 0, 458774, 0, 0, 458776, 0, 0, 458777, 24, 0, 524294, 24, 0, 524297, 0, 0, 524299, 22, 0, 524301, 0, 0, 524304, 0, 0, 524305, 8, 0, 524306, 0, 0, 524307, 25, 0, 524308, 0, 0, 524310, 25, 0, 524312, 0, 0, 524313, 24, 0, 589830, 22, 0, 589831, 0, 0, 589833, 0, 0, 589834, 33, 0, 589835, 0, 0, 589836, 33, 0, 589837, 0, 0, 589838, 0, 0, 589839, 0, 0, 589840, 0, 0, 589842, 22, 0, 589843, 25, 0, 589844, 0, 0, 589846, 0, 0, 589848, 0, 0, 589849, 24, 0, 655366, 22, 0, 655367, 25, 0, 655369, 0, 0, 655371, 24, 0, 655373, 8, 0, 655376, 33, 0, 655377, 9, 0, 655378, 0, 0, 655380, 0, 0, 655382, 25, 0, 655384, 0, 0, 655385, 24, 0, 720902, 22, 0, 720903, 0, 0, 720905, 0, 0, 720907, 0, 0, 720908, 0, 0, 720909, 0, 0, 720910, 0, 0, 720911, 0, 0, 720912, 0, 0, 720913, 21, 0, 720914, 0, 0, 720916, 0, 0, 720918, 0, 0, 720920, 0, 0, 720921, 24, 0, 786438, 22, 0, 786441, 0, 0, 786445, 8, 0, 786448, 33, 0, 786452, 0, 0, 786454, 25, 0, 786456, 0, 0, 786457, 24, 0, 851974, 22, 0, 851975, 0, 0, 851977, 0, 0, 851978, 25, 0, 851979, 0, 0, 851980, 0, 0, 851981, 0, 0, 851982, 0, 0, 851983, 0, 0, 851984, 0, 0, 851985, 0, 0, 851986, 0, 0, 851987, 0, 0, 851988, 0, 0, 851990, 0, 0, 851992, 0, 0, 851993, 24, 0, 917510, 22, 0, 917511, 0, 0, 917512, 9, 0, 917526, 0, 0, 917528, 0, 0, 917529, 24, 0, 983047, 0, 0, 983048, 0, 0, 983049, 0, 0, 983050, 0, 0, 983051, 0, 0, 983052, 0, 0, 983053, 0, 0, 983054, 0, 0, 983055, 0, 0, 983056, 0, 0, 983057, 0, 0, 983058, 0, 0, 983059, 0, 0, 983060, 0, 0, 983061, 0, 0, 983062, 0, 0, 983064, 0, 0 )
+
+[node name="player" parent="." instance=ExtResource( 10 )]
+x = 15
+y = 8
+
+[node name="menu" parent="." instance=ExtResource( 1 )]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 120.0
+margin_bottom = 56.0
+text = "menu"
+scene_path = "res://src/ui/menu.tscn"
+
+[node name="next_level" type="Button" parent="."]
+margin_left = 904.0
+margin_top = 8.0
+margin_right = 1016.0
+margin_bottom = 56.0
+theme = ExtResource( 38 )
+disabled = true
+text = "next level"
+script = ExtResource( 37 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 408.0
+margin_top = 16.0
+margin_right = 621.0
+margin_bottom = 85.0
+theme = ExtResource( 38 )
+text = "level 18
+
+i was having a stroke okay"
+align = 1
+
+[node name="restart" type="Button" parent="."]
+margin_left = 8.0
+margin_top = 64.0
+margin_right = 120.0
+margin_bottom = 112.0
+theme = ExtResource( 38 )
+text = "restart"
+script = ExtResource( 39 )
+
+[connection signal="tree_entered" from="." to="." method="_on_level_tree_entered"]
+[connection signal="settings_changed" from="tilemap" to="." method="_on_tilemap_settings_changed"]
+[connection signal="end_moving" from="player" to="." method="_on_player_end_moving"]
+[connection signal="move" from="player" to="." method="_on_player_move"]
+[connection signal="button_up" from="next_level" to="next_level" method="_on_next_level_button_up"]
+[connection signal="button_up" from="restart" to="restart" method="_on_restart_button_up"]

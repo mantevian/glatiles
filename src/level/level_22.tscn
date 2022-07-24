@@ -1,0 +1,66 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://src/tileset.tres" type="TileSet" id=1]
+[ext_resource path="res://src/ui/scene_change_button.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/level.gd" type="Script" id=4]
+[ext_resource path="res://src/restart.gd" type="Script" id=5]
+[ext_resource path="res://src/next_level.gd" type="Script" id=6]
+[ext_resource path="res://src/ui/theme.tres" type="Theme" id=7]
+
+[node name="level_22" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="tilemap" type="TileMap" parent="."]
+modulate = Color( 0.788235, 0.788235, 0.788235, 0.784314 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( 131085, 0, 0, 131086, 0, 0, 131087, 0, 0, 131088, 0, 0, 131089, 0, 0, 131090, 0, 0, 196621, 0, 0, 196623, 25, 0, 196626, 0, 0, 262155, 0, 0, 262156, 0, 0, 262157, 0, 0, 262158, 0, 0, 262161, 0, 0, 262162, 0, 0, 262163, 0, 0, 262164, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0, 327690, 0, 0, 327691, 0, 0, 327695, 32, 0, 327696, 32, 0, 327699, 8, 0, 327700, 0, 0, 327701, 0, 0, 327702, 0, 0, 327703, 0, 0, 327704, 0, 0, 393223, 0, 0, 393227, 0, 0, 393231, 32, 0, 393232, 32, 0, 393236, 0, 0, 393240, 0, 0, 458759, 0, 0, 458767, 32, 0, 458768, 32, 0, 458770, 25, 0, 458772, 10, 0, 458774, 7, 0, 458776, 0, 0, 524295, 0, 0, 524299, 0, 0, 524303, 32, 0, 524304, 32, 0, 524308, 0, 0, 524312, 0, 0, 589831, 0, 0, 589832, 0, 0, 589833, 0, 0, 589834, 0, 0, 589835, 0, 0, 589839, 32, 0, 589840, 32, 0, 589844, 0, 0, 589845, 0, 0, 589846, 0, 0, 589847, 0, 0, 589848, 0, 0, 655371, 0, 0, 655372, 0, 0, 655373, 0, 0, 655375, 0, 0, 655376, 0, 0, 655378, 0, 0, 655379, 0, 0, 655380, 0, 0, 720908, 0, 0, 720915, 0, 0, 786444, 0, 0, 786446, 9, 0, 786449, 10, 0, 786451, 0, 0, 851980, 0, 0, 851987, 0, 0, 917516, 0, 0, 917517, 0, 0, 917518, 0, 0, 917519, 0, 0, 917520, 0, 0, 917521, 0, 0, 917522, 0, 0, 917523, 0, 0 )
+
+[node name="player" parent="." instance=ExtResource( 3 )]
+x = 9
+y = 7
+
+[node name="menu" parent="." instance=ExtResource( 2 )]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 120.0
+margin_bottom = 56.0
+text = "menu"
+scene_path = "res://src/ui/menu.tscn"
+
+[node name="next_level" type="Button" parent="."]
+margin_left = 904.0
+margin_top = 8.0
+margin_right = 1016.0
+margin_bottom = 56.0
+theme = ExtResource( 7 )
+disabled = true
+text = "next level"
+script = ExtResource( 6 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 488.0
+margin_top = 16.0
+margin_right = 546.0
+margin_bottom = 37.0
+theme = ExtResource( 7 )
+text = "level 22"
+align = 1
+
+[node name="restart" type="Button" parent="."]
+margin_left = 8.0
+margin_top = 64.0
+margin_right = 120.0
+margin_bottom = 112.0
+theme = ExtResource( 7 )
+text = "restart"
+script = ExtResource( 5 )
+
+[connection signal="tree_entered" from="." to="." method="_on_level_tree_entered"]
+[connection signal="settings_changed" from="tilemap" to="." method="_on_tilemap_settings_changed"]
+[connection signal="end_moving" from="player" to="." method="_on_player_end_moving"]
+[connection signal="move" from="player" to="." method="_on_player_move"]
+[connection signal="button_up" from="next_level" to="next_level" method="_on_next_level_button_up"]
+[connection signal="button_up" from="restart" to="restart" method="_on_restart_button_up"]
