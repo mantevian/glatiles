@@ -1,0 +1,237 @@
+[
+	{
+		"id": 0,
+		"name": "wall",
+		"passable": "never",
+		"colorable": false
+	},
+	{
+		"id": 1,
+		"name": "red",
+		"passable": "same_color",
+		"colorable": false,
+		"color": "red"
+	},
+	{
+		"id": 2,
+		"name": "orange",
+		"passable": "same_color",
+		"colorable": false,
+		"color": "orange"
+	},
+	{
+		"id": 3,
+		"name": "yellow",
+		"passable": "same_color",
+		"colorable": false,
+		"color": "yellow"
+	},
+	{
+		"id": 4,
+		"name": "green",
+		"passable": "same_color",
+		"colorable": false,
+		"color": "green"
+	},
+	{
+		"id": 5,
+		"name": "blue",
+		"passable": "same_color",
+		"colorable": false,
+		"color": "blue"
+	},
+	{
+		"id": 6,
+		"name": "purple",
+		"passable": "same_color",
+		"colorable": false,
+		"color": "purple"
+	},
+	{
+		"id": 7,
+		"name": "gray_circle",
+		"passable": "always",
+		"colorable": true,
+		"replace": "gray_circle_filled"
+	},
+	{
+		"id": 8,
+		"name": "red_circle",
+		"passable": "same_color",
+		"colorable": true,
+		"replace": "red_circle_filled",
+		"color": "red"
+	},
+	{
+		"id": 9,
+		"name": "orange_circle",
+		"passable": "same_color",
+		"colorable": true,
+		"replace": "orange_circle_filled",
+		"color": "orange"
+	},
+	{
+		"id": 10,
+		"name": "yellow_circle",
+		"passable": "same_color",
+		"colorable": true,
+		"replace": "yellow_circle_filled",
+		"color": "yellow"
+	},
+	{
+		"id": 11,
+		"name": "green_circle",
+		"passable": "same_color",
+		"colorable": true,
+		"replace": "green_circle_filled",
+		"color": "green"
+	},
+	{
+		"id": 12,
+		"name": "blue_circle",
+		"passable": "same_color",
+		"colorable": true,
+		"replace": "blue_circle_filled",
+		"color": "blue"
+	},
+	{
+		"id": 13,
+		"name": "purple_circle",
+		"passable": "same_color",
+		"colorable": true,
+		"replace": "purple_circle_filled",
+		"color": "purple"
+	},
+	{
+		"id": 14,
+		"name": "gray_circle_filled",
+		"passable": "always",
+		"colorable": false
+	},
+	{
+		"id": 15,
+		"name": "red_circle_filled",
+		"passable": "same_color",
+		"colorable": false,
+		"color": "red"
+	},
+	{
+		"id": 16,
+		"name": "orange_circle_filled",
+		"passable": "same_color",
+		"colorable": false,
+		"color": "orange"
+	},
+	{
+		"id": 17,
+		"name": "yellow_circle_filled",
+		"passable": "same_color",
+		"colorable": false,
+		"color": "yellow"
+	},
+	{
+		"id": 18,
+		"name": "green_circle_filled",
+		"passable": "same_color",
+		"colorable": false,
+		"color": "green"
+	},
+	{
+		"id": 19,
+		"name": "blue_circle_filled",
+		"passable": "same_color",
+		"colorable": false,
+		"color": "blue"
+	},
+	{
+		"id": 20,
+		"name": "purple_circle_filled",
+		"passable": "same_color",
+		"colorable": false,
+		"color": "purple"
+	},
+	{
+		"id": 21,
+		"name": "arrow_up",
+		"passable": "always",
+		"colorable": false
+	},
+	{
+		"id": 22,
+		"name": "arrow_right",
+		"passable": "always",
+		"colorable": false
+	},
+	{
+		"id": 23,
+		"name": "arrow_down",
+		"passable": "always",
+		"colorable": false
+	},
+	{
+		"id": 24,
+		"name": "arrow_left",
+		"passable": "always",
+		"colorable": false
+	},
+	{
+		"id": 25,
+		"name": "gray_plus",
+		"passable": "always",
+		"colorable": true
+	},
+	{
+		"id": 26,
+		"name": "red_plus",
+		"passable": "always",
+		"colorable": true,
+		"color": "red"
+	},
+	{
+		"id": 27,
+		"name": "orange_plus",
+		"passable": "always",
+		"colorable": true,
+		"color": "orange"
+	},
+	{
+		"id": 28,
+		"name": "yellow_plus",
+		"passable": "always",
+		"colorable": true,
+		"color": "yellow"
+	},
+	{
+		"id": 29,
+		"name": "green_plus",
+		"passable": "always",
+		"colorable": true,
+		"color": "green"
+	},
+	{
+		"id": 30,
+		"name": "blue_plus",
+		"passable": "always",
+		"colorable": true,
+		"color": "blue"
+	},
+	{
+		"id": 31,
+		"name": "purple_plus",
+		"passable": "always",
+		"colorable": true,
+		"color": "purple"
+	},
+	{
+		"id": 32,
+		"name": "cross",
+		"passable": "always",
+		"colorable": false
+	},
+	{
+		"id": 33,
+		"name": "minus",
+		"passable": "always",
+		"colorable": true
+	}
+]
