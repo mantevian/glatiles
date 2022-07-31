@@ -2,12 +2,11 @@ extends Node2D
 
 class_name Level
 
-
 var level_name: String = ""
 var author: String = ""
 var description: String = ""
 var label: String = ""
-var next_level: String = ""
+var next_level: int = -1
 var pack_name: String = ""
 var spawn_x: int
 var spawn_y: int
@@ -22,7 +21,7 @@ func _process(delta: float) -> void:
 		_on_next_level_button_up()
 	
 	if Input.is_action_just_pressed("back"):
-		get_tree().change_scene("res://src/menu/menu.tscn")
+		get_tree().change_scene("res://src/menu/level_select.tscn")
 	
 	if Input.is_action_just_pressed("restart"):
 		get_tree().reload_current_scene()
@@ -34,10 +33,10 @@ func _on_level_tree_exited() -> void:
 func _on_level_tree_entered() -> void:
 	$tilemap.clear()
 	
-	TileHelper.parse_level(SaveData.selected_pack, SaveData.selected_level, self, SaveData.is_main_level_selected)
-	$Label.text = label
+	LevelManager.parse_level(SaveData.get("selected_pack"), SaveData.get("selected_level"), self, SaveData.get("is_internal_pack_selected"))
+	$label.text = label
 	
-	if next_level.length() > 0:
+	if next_level > -1:
 		$next_level.visible = true
 	else:
 		$next_level.visible = false
@@ -56,19 +55,19 @@ func _physics_process(delta: float) -> void:
 			"arrow_up":
 				if (is_cell_passable($player.x, $player.y - 1)):
 					$player.y -= 1
-					$player.update_position()
+					update_tile_on_player()
 			"arrow_right":
 				if (is_cell_passable($player.x + 1, $player.y)):
 					$player.x += 1
-					$player.update_position()
+					update_tile_on_player()
 			"arrow_down":
 				if (is_cell_passable($player.x, $player.y + 1)):
 					$player.y += 1
-					$player.update_position()
+					update_tile_on_player()
 			"arrow_left":
 				if (is_cell_passable($player.x - 1, $player.y)):
 					$player.x -= 1
-					$player.update_position()
+					update_tile_on_player()
 	else:
 		_arrow_cooldown -= 1
 
@@ -87,6 +86,10 @@ func _on_player_move() -> void:
 		3:
 			$player.x -= 1
 	
+	update_tile_on_player()
+
+
+func update_tile_on_player() -> void:
 	$player.update_position()
 	
 	if get_cell_on_player() == "gray_plus":
@@ -96,7 +99,6 @@ func _on_player_move() -> void:
 		
 	if get_cell_on_player() == "minus":
 		$player.color = $player.prev_color()
-
 
 func get_next_cell() -> int:
 	match $player.direction:
@@ -162,8 +164,7 @@ func set_cell(var x: int, var y: int, var tile: String) -> void:
 
 
 func _on_next_level_button_up() -> void:
-	SaveData.selected_level = next_level
-	SaveData.save_data()
+	SaveData.set("selected_level", next_level)
 	get_tree().reload_current_scene()
 
 

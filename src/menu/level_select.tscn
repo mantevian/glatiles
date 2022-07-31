@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://src/ui/theme.tres" type="Theme" id=1]
+[ext_resource path="res://src/menu/level_select.gd" type="Script" id=2]
+[ext_resource path="res://src/ui/scene_change_button.tscn" type="PackedScene" id=3]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://assets/Montserrat-Bold.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 42
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 1 )
+
+[node name="level_select" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="scene_change_button" parent="." instance=ExtResource( 3 )]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 120.0
+margin_bottom = 56.0
+text = "packs"
+scene_path = "res://src/menu/pack_select.tscn"
+
+[node name="pack_name" type="Label" parent="."]
+margin_top = 24.0
+margin_right = 1024.0
+margin_bottom = 80.0
+theme = ExtResource( 1 )
+custom_fonts/font = SubResource( 2 )
+text = "pack name"
+align = 1
+valign = 1
+
+[node name="level_container" type="ScrollContainer" parent="."]
+margin_left = 64.0
+margin_top = 112.0
+margin_right = 960.0
+margin_bottom = 500.0
+theme = ExtResource( 1 )
+scroll_horizontal_enabled = false
+
+[node name="level_list" type="VBoxContainer" parent="level_container"]
+custom_constants/separation = 8
+
+[connection signal="tree_entered" from="." to="." method="_on_level_select_tree_entered"]

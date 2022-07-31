@@ -1,0 +1,106 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://assets/Montserrat-Medium.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://src/ui/theme.tres" type="Theme" id=2]
+[ext_resource path="res://src/menu/level_thumbnail.gd" type="Script" id=3]
+[ext_resource path="res://assets/overlay.png" type="Texture" id=4]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://assets/Montserrat-Bold.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 28
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 28
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 20
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 20
+font_data = ExtResource( 1 )
+
+[node name="level_thumbnail" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -192.0
+margin_bottom = -416.0
+rect_min_size = Vector2( 800, 96 )
+size_flags_horizontal = 2
+size_flags_vertical = 2
+script = ExtResource( 3 )
+
+[node name="background" type="Sprite" parent="."]
+modulate = Color( 0.792157, 0.792157, 0.792157, 0.376471 )
+position = Vector2( 416.5, 48 )
+scale = Vector2( 25.9688, 3 )
+texture = ExtResource( 4 )
+
+[node name="title" type="HBoxContainer" parent="."]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 332.0
+margin_bottom = 52.0
+custom_constants/separation = 10
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="level_name" type="Label" parent="title"]
+margin_right = 160.0
+margin_bottom = 36.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource( 2 )
+custom_fonts/font = SubResource( 2 )
+text = "level name"
+valign = 2
+
+[node name="by" type="Label" parent="title"]
+margin_left = 170.0
+margin_right = 205.0
+margin_bottom = 36.0
+size_flags_vertical = 1
+theme = ExtResource( 2 )
+custom_fonts/font = SubResource( 3 )
+text = "by"
+valign = 2
+
+[node name="author" type="Label" parent="title"]
+margin_left = 215.0
+margin_right = 312.0
+margin_bottom = 36.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource( 2 )
+custom_fonts/font = SubResource( 2 )
+text = "author"
+valign = 2
+
+[node name="description" type="Label" parent="."]
+margin_left = 16.0
+margin_top = 56.0
+margin_right = 712.0
+margin_bottom = 82.0
+size_flags_vertical = 1
+theme = ExtResource( 2 )
+custom_fonts/font = SubResource( 4 )
+text = "description"
+valign = 2
+
+[node name="play_button" type="Button" parent="."]
+margin_left = 720.0
+margin_top = 16.0
+margin_right = 816.0
+margin_bottom = 80.0
+mouse_default_cursor_shape = 2
+theme = ExtResource( 2 )
+custom_fonts/font = SubResource( 5 )
+text = "play"
+
+[connection signal="button_up" from="play_button" to="." method="_on_play_button_button_up"]

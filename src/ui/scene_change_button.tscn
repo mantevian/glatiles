@@ -6,6 +6,7 @@
 [node name="scene_change_button" type="Button"]
 margin_right = 121.0
 margin_bottom = 36.0
+mouse_default_cursor_shape = 2
 theme = ExtResource( 2 )
 script = ExtResource( 1 )
 

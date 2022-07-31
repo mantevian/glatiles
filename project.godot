@@ -127,6 +127,7 @@ config/windows_native_icon="res://icon.ico"
 
 TileHelper="*res://src/level/tile_helper.gd"
 SaveData="*res://src/save_data.gd"
+LevelManager="*res://src/level/level_manager.gd"
 
 [discord_presence]
 
