@@ -1,0 +1,94 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/editor/manage_pack.gd" type="Script" id=1]
+[ext_resource path="res://src/ui/title_font.tres" type="DynamicFont" id=2]
+[ext_resource path="res://src/ui/theme.tres" type="Theme" id=3]
+
+[node name="manage_pack" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 3 )
+script = ExtResource( 1 )
+
+[node name="cancel" type="Button" parent="."]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 104.0
+margin_bottom = 48.0
+mouse_default_cursor_shape = 2
+text = "cancel"
+
+[node name="save" type="Button" parent="."]
+margin_left = 592.0
+margin_top = 496.0
+margin_right = 688.0
+margin_bottom = 536.0
+mouse_default_cursor_shape = 2
+text = "save"
+
+[node name="container" type="VBoxContainer" parent="."]
+margin_left = 144.0
+margin_top = 128.0
+margin_right = 1168.0
+margin_bottom = 440.0
+theme = ExtResource( 3 )
+custom_constants/separation = 12
+
+[node name="title" type="Label" parent="container"]
+margin_right = 1024.0
+margin_bottom = 36.0
+custom_fonts/font = ExtResource( 2 )
+text = "edit pack properties"
+
+[node name="folder_name_label" type="Label" parent="container"]
+margin_top = 48.0
+margin_right = 1024.0
+margin_bottom = 69.0
+text = "folder name:"
+
+[node name="folder_name_edit" type="LineEdit" parent="container"]
+margin_top = 81.0
+margin_right = 1024.0
+margin_bottom = 102.0
+max_length = 32
+
+[node name="display_name_label" type="Label" parent="container"]
+margin_top = 114.0
+margin_right = 1024.0
+margin_bottom = 135.0
+text = "display name:"
+
+[node name="display_name_edit" type="LineEdit" parent="container"]
+margin_top = 147.0
+margin_right = 1024.0
+margin_bottom = 168.0
+max_length = 32
+
+[node name="author_label" type="Label" parent="container"]
+margin_top = 180.0
+margin_right = 1024.0
+margin_bottom = 201.0
+text = "author:"
+
+[node name="author_edit" type="LineEdit" parent="container"]
+margin_top = 213.0
+margin_right = 1024.0
+margin_bottom = 234.0
+max_length = 32
+
+[node name="description_label" type="Label" parent="container"]
+margin_top = 246.0
+margin_right = 1024.0
+margin_bottom = 267.0
+text = "description:"
+
+[node name="description_edit" type="LineEdit" parent="container"]
+margin_top = 279.0
+margin_right = 1024.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 0, 21 )
+max_length = 128
+
+[connection signal="tree_entered" from="." to="." method="_on_manage_pack_tree_entered"]
+[connection signal="button_up" from="cancel" to="." method="_on_cancel_button_up"]
+[connection signal="button_up" from="save" to="." method="_on_save_button_up"]

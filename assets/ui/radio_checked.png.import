@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/updown.png-a57685ec046fcb271283a1130db7fab0.stex"
+path="res://.import/radio_checked.png-b8fbc8a9694543d1537c51361ca4579f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/updown.png"
-dest_files=[ "res://.import/updown.png-a57685ec046fcb271283a1130db7fab0.stex" ]
+source_file="res://assets/ui/radio_checked.png"
+dest_files=[ "res://.import/radio_checked.png-b8fbc8a9694543d1537c51361ca4579f.stex" ]
 
 [params]
 

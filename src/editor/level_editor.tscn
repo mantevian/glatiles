@@ -1,0 +1,152 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://src/ui/title_font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://src/ui/theme.tres" type="Theme" id=2]
+[ext_resource path="res://src/level/tileset.tres" type="TileSet" id=3]
+[ext_resource path="res://src/editor/level_editor.gd" type="Script" id=4]
+[ext_resource path="res://assets/ui/tile_hover.png" type="Texture" id=5]
+[ext_resource path="res://assets/grid_cell.png" type="Texture" id=6]
+
+[sub_resource type="CanvasItemMaterial" id=6]
+blend_mode = 1
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.686275, 0.686275, 0.686275, 0 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0.564706, 0.564706, 0.564706, 1 )
+
+[sub_resource type="Theme" id=3]
+PanelContainer/styles/panel = SubResource( 7 )
+
+[sub_resource type="Theme" id=4]
+
+[node name="level_editor" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+script = ExtResource( 4 )
+
+[node name="quit" type="Button" parent="."]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 104.0
+margin_bottom = 48.0
+mouse_default_cursor_shape = 2
+text = "quit"
+
+[node name="save" type="Button" parent="."]
+margin_left = 8.0
+margin_top = 56.0
+margin_right = 104.0
+margin_bottom = 96.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme = ExtResource( 2 )
+text = "save"
+
+[node name="properties" type="Button" parent="."]
+margin_left = 1176.0
+margin_top = 8.0
+margin_right = 1272.0
+margin_bottom = 48.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme = ExtResource( 2 )
+text = "properties"
+
+[node name="level_name" type="Label" parent="."]
+margin_left = 128.0
+margin_top = 8.0
+margin_right = 1152.0
+margin_bottom = 96.0
+theme = ExtResource( 2 )
+custom_fonts/font = ExtResource( 1 )
+text = "level name"
+align = 1
+valign = 1
+
+[node name="tile_select" type="ScrollContainer" parent="."]
+margin_left = 8.0
+margin_top = 104.0
+margin_right = 104.0
+margin_bottom = 712.0
+theme = ExtResource( 2 )
+scroll_horizontal_enabled = false
+
+[node name="container" type="ViewportContainer" parent="tile_select"]
+margin_right = 96.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 96, 32 )
+
+[node name="tilemap" type="TileMap" parent="tile_select/container"]
+scale = Vector2( 0.5, 0.5 )
+tile_set = ExtResource( 3 )
+format = 1
+
+[node name="hover" type="Sprite" parent="tile_select/container"]
+modulate = Color( 1, 1, 1, 0.501961 )
+material = SubResource( 6 )
+position = Vector2( 16, 16 )
+texture = ExtResource( 5 )
+
+[node name="outline" type="PanelContainer" parent="."]
+margin_left = 124.0
+margin_top = 100.0
+margin_right = 1156.0
+margin_bottom = 620.0
+theme = SubResource( 3 )
+
+[node name="world_container" type="ViewportContainer" parent="."]
+margin_left = 128.0
+margin_top = 104.0
+margin_right = 1152.0
+margin_bottom = 616.0
+theme = SubResource( 4 )
+
+[node name="viewport" type="Viewport" parent="world_container"]
+size = Vector2( 1024, 512 )
+handle_input_locally = false
+hdr = false
+disable_3d = true
+usage = 0
+render_target_update_mode = 3
+
+[node name="grid" type="TextureRect" parent="world_container/viewport"]
+modulate = Color( 0.584314, 0.584314, 0.584314, 0.196078 )
+margin_right = 3000.0
+margin_bottom = 1500.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 2
+
+[node name="tilemap" type="TileMap" parent="world_container/viewport"]
+scale = Vector2( 0.5, 0.5 )
+tile_set = ExtResource( 3 )
+format = 1
+
+[node name="hover" type="Sprite" parent="world_container/viewport"]
+modulate = Color( 1, 1, 1, 0.501961 )
+material = SubResource( 6 )
+texture = ExtResource( 5 )
+
+[node name="camera" type="Camera2D" parent="world_container/viewport"]
+position = Vector2( 512, 256 )
+current = true
+limit_left = 0
+limit_top = 0
+
+[node name="coordinates" type="Label" parent="."]
+margin_left = 128.0
+margin_top = 632.0
+margin_right = 352.0
+margin_bottom = 653.0
+
+[connection signal="ready" from="." to="." method="_on_level_editor_ready"]
+[connection signal="tree_entered" from="." to="." method="_on_level_editor_tree_entered"]
+[connection signal="button_up" from="quit" to="." method="_on_quit_button_up"]
+[connection signal="button_up" from="save" to="." method="_on_save_button_up"]
+[connection signal="button_up" from="properties" to="." method="_on_properties_button_up"]

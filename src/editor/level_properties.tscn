@@ -1,0 +1,158 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/ui/title_font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://src/editor/level_properties.gd" type="Script" id=2]
+[ext_resource path="res://src/ui/theme.tres" type="Theme" id=3]
+
+[node name="level_properties" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 3 )
+script = ExtResource( 2 )
+
+[node name="back" type="Button" parent="."]
+margin_left = 1176.0
+margin_top = 8.0
+margin_right = 1272.0
+margin_bottom = 48.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+text = "back"
+
+[node name="container" type="VBoxContainer" parent="."]
+margin_left = 128.0
+margin_top = 64.0
+margin_right = 1152.0
+margin_bottom = 584.0
+custom_constants/separation = 12
+
+[node name="title" type="Label" parent="container"]
+margin_right = 1024.0
+margin_bottom = 36.0
+custom_fonts/font = ExtResource( 1 )
+text = "edit level properties"
+
+[node name="level_name_label" type="Label" parent="container"]
+margin_top = 48.0
+margin_right = 1024.0
+margin_bottom = 69.0
+text = "level name:"
+
+[node name="level_name_edit" type="LineEdit" parent="container"]
+margin_top = 81.0
+margin_right = 1024.0
+margin_bottom = 102.0
+max_length = 32
+
+[node name="pack_name_label" type="Label" parent="container"]
+margin_top = 114.0
+margin_right = 1024.0
+margin_bottom = 135.0
+text = "level pack:"
+
+[node name="pack_name_edit" type="OptionButton" parent="container"]
+margin_top = 147.0
+margin_right = 1024.0
+margin_bottom = 168.0
+focus_mode = 0
+enabled_focus_mode = 0
+
+[node name="author_label" type="Label" parent="container"]
+margin_top = 180.0
+margin_right = 1024.0
+margin_bottom = 201.0
+text = "author:"
+
+[node name="author_edit" type="LineEdit" parent="container"]
+margin_top = 213.0
+margin_right = 1024.0
+margin_bottom = 234.0
+max_length = 32
+
+[node name="description_label" type="Label" parent="container"]
+margin_top = 246.0
+margin_right = 1024.0
+margin_bottom = 267.0
+text = "description (shown in level selection):"
+
+[node name="description_edit" type="LineEdit" parent="container"]
+margin_top = 279.0
+margin_right = 1024.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 0, 21 )
+max_length = 128
+
+[node name="label_label" type="Label" parent="container"]
+margin_top = 312.0
+margin_right = 1024.0
+margin_bottom = 333.0
+text = "label (shown in the level):"
+
+[node name="label_edit" type="TextEdit" parent="container"]
+margin_top = 345.0
+margin_right = 1024.0
+margin_bottom = 445.0
+rect_min_size = Vector2( 0, 100 )
+
+[node name="level_size" type="HBoxContainer" parent="container"]
+margin_top = 457.0
+margin_right = 1024.0
+margin_bottom = 478.0
+
+[node name="width_label" type="Label" parent="container/level_size"]
+margin_right = 51.0
+margin_bottom = 21.0
+text = "width:"
+
+[node name="width_edit" type="SpinBox" parent="container/level_size"]
+margin_left = 55.0
+margin_right = 135.0
+margin_bottom = 21.0
+min_value = 32.0
+max_value = 1000.0
+value = 32.0
+
+[node name="height_label" type="Label" parent="container/level_size"]
+margin_left = 139.0
+margin_right = 197.0
+margin_bottom = 21.0
+text = "height:"
+
+[node name="height_edit" type="SpinBox" parent="container/level_size"]
+margin_left = 201.0
+margin_right = 281.0
+margin_bottom = 21.0
+min_value = 16.0
+max_value = 1000.0
+value = 16.0
+
+[node name="player_spawn" type="HBoxContainer" parent="container"]
+margin_top = 490.0
+margin_right = 1024.0
+margin_bottom = 511.0
+
+[node name="x_label" type="Label" parent="container/player_spawn"]
+margin_right = 71.0
+margin_bottom = 21.0
+text = "spawn x:"
+
+[node name="x_edit" type="SpinBox" parent="container/player_spawn"]
+margin_left = 75.0
+margin_right = 155.0
+margin_bottom = 21.0
+max_value = 1000.0
+
+[node name="y_label" type="Label" parent="container/player_spawn"]
+margin_left = 159.0
+margin_right = 230.0
+margin_bottom = 21.0
+text = "spawn y:"
+
+[node name="y_edit" type="SpinBox" parent="container/player_spawn"]
+margin_left = 234.0
+margin_right = 314.0
+margin_bottom = 21.0
+max_value = 1000.0
+
+[connection signal="tree_entered" from="." to="." method="_on_level_properties_tree_entered"]
+[connection signal="button_up" from="back" to="." method="_on_back_button_up"]

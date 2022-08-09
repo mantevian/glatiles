@@ -39,12 +39,12 @@ func _physics_process(delta: float) -> void:
 		
 	if Input.is_action_pressed("right"):
 		direction = 1
-		if x < 31:
+		if x < get_tree().get_root().get_node("level").level_size.x - 1:
 			start_moving()
 		
 	if Input.is_action_pressed("down"):
 		direction = 2
-		if y < 15:
+		if y < get_tree().get_root().get_node("level").level_size.y - 1:
 			start_moving()
 		
 	if Input.is_action_pressed("left"):

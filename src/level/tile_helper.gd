@@ -3,7 +3,7 @@ extends Node
 
 func tile_data(name: String):
 	if name == "air":
-		return { "id": -1, "name": "air", "passable": true, "colorable": true }
+		return { "id": -1, "name": "air", "passable": "always", "colorable": "always" }
 		
 	var file = File.new()
 	file.open("res://data/tiles.json", File.READ)
@@ -26,6 +26,9 @@ func id(name: String) -> int:
 
 
 func name(id: int) -> String:
+	if id == -1:
+		return "air"
+	
 	var file = File.new()
 	file.open("res://data/tiles.json", File.READ)
 	var content = file.get_as_text()

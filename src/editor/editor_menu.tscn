@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://src/ui/theme.tres" type="Theme" id=1]
+[ext_resource path="res://src/ui/title_font.tres" type="DynamicFont" id=2]
+[ext_resource path="res://assets/fonts/Montserrat-Medium.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://src/editor/editor_menu.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=3]
+size = 24
+font_data = ExtResource( 3 )
+
+[node name="editor_menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 272, 200 )
+theme = ExtResource( 1 )
+script = ExtResource( 4 )
+
+[node name="title" type="Label" parent="."]
+margin_right = 1280.0
+margin_bottom = 88.0
+theme = ExtResource( 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "level editor"
+align = 1
+valign = 1
+
+[node name="menu" type="Button" parent="."]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 104.0
+margin_bottom = 48.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+text = "menu"
+
+[node name="load" type="Button" parent="."]
+margin_left = 552.0
+margin_top = 288.0
+margin_right = 728.0
+margin_bottom = 360.0
+mouse_default_cursor_shape = 2
+theme = ExtResource( 1 )
+custom_fonts/font = SubResource( 3 )
+text = "load last"
+
+[node name="manage_packs" type="Button" parent="."]
+margin_left = 552.0
+margin_top = 368.0
+margin_right = 730.0
+margin_bottom = 440.0
+mouse_default_cursor_shape = 2
+theme = ExtResource( 1 )
+custom_fonts/font = SubResource( 3 )
+text = "manage packs"
+
+[connection signal="button_up" from="menu" to="." method="_on_menu_button_up"]
+[connection signal="button_up" from="load" to="." method="_on_load_button_up"]
+[connection signal="button_up" from="manage_packs" to="." method="_on_manage_packs_button_up"]
